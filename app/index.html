@@ -17,7 +17,7 @@
         <!--Sidebar-->
         <div class="col-md-2">
           <!--Search-->
-          <p><span>Search: <input ng-model="query"/></span></p>
+          <p><span>Search: <input ng-model="searchString"/></span></p>
           <!--Sort-->
           <p>
             <span>Sort by:
@@ -32,7 +32,7 @@
         <!--Main-->
         <div class="col-md-10">
           <ul>
-            <li ng-repeat="company in companies">
+            <li ng-repeat="company in companies | searchFor:searchString">
               <p>{{ company.gsx$boothnumber.$t }} <span>{{ company.gsx$name.$t }}</span></p>
               <p>{{ company.gsx$snippet.$t }}</p>
             </li>
