@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>xFair 2017 Companies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="app.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  </head>
+  <body ng-app="MainApp">
+    <div class="container-fluid" ng-controller="Ctrl">
+      <div class="row">
+        <!--Sidebar-->
+        <div class="col-md-2">
+          <!--Search-->
+          <p><span>Search: <input ng-model="query"/></span></p>
+          <!--Sort-->
+          <p>
+            <span>Sort by:
+              <select ng-model="orderProp">
+                <option value="name">Alphabetical</option>
+                <option value="boothnumber">Booth number</option>
+              </select>
+            </span>
+          </p>
+        </div>
+
+        <!--Main-->
+        <div class="col-md-10">
+          <ul>
+            <li ng-repeat="company in companies">
+              <p>{{ company.boothnumber }} <span>{{ company.name }}</span></p>
+              <p>{{ company.snippet }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="ctrl.js"></script>
+  </body>
+</html>
