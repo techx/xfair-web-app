@@ -1,7 +1,7 @@
 var app = angular.module('MainApp', []);
 
-app.controller('Ctrl', function($scope) {
-	$scope.companies = [
+app.controller('Ctrl', function($scope, $http) {
+	/*$scope.companies = [
 		{
           name: 'Google',
           snippet: 'Machine learning',
@@ -15,8 +15,11 @@ app.controller('Ctrl', function($scope) {
           snippet: 'Make the world more open and connected. Machine learning.',
           boothnumber: 3
         }
-	];
+	];*/
 
 	orderProp = 'boothnumber';
 	
+	$http.get('companies/companies2.json').success(function(data) {
+		$scope.companies = data;
+	});
 });
