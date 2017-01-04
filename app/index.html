@@ -9,9 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="app.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <script src="http://spreadsheets.google.com/feeds/feed/1h9qPXGp2fWQNPSnYGvruMH85sY1YCqpoE42nBRksFAo/1/public/basic?alt=json-in-script&callback=myFunc"></script>
-
-
+     <script src="http://spreadsheets.google.com/feeds/feed/1h9qPXGp2fWQNPSnYGvruMH85sY1YCqpoE42nBRksFAo/1/public/basic?alt=json-in-script&callback=myFunc"></script>
   </head>
   <body ng-app="MainApp">
     <div class="container-fluid" ng-controller="Ctrl">
@@ -19,7 +17,7 @@
         <!--Sidebar-->
         <div class="col-md-2">
           <!--Search-->
-          <p><span>Search: <input ng-model="query"/></span></p>
+          <p><span>Search: <input ng-model="searchString"/></span></p>
           <!--Sort-->
           <p>
             <span>Sort by:
@@ -33,8 +31,11 @@
 
         <!--Main-->
         <div class="col-md-10">
-          <ul>
-            <li ng-repeat="company in companies">
+          <ul style="list-style-type: none">
+            <li ng-repeat="company in companies | searchFor:searchString">
+              
+              <a href="#/companies/{{company.gsx$id.$t}}"><img src="{{company.gsx$img.$t}}" alt={{company.gsx$name.$t}} style="width:128px;height:128px;">
+
               <p>{{ company.gsx$boothnumber.$t }} <span>{{ company.gsx$name.$t }}</span></p>
               <p>{{ company.gsx$snippet.$t }}</p>
             </li>

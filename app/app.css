@@ -1,3 +1,21 @@
 body {
-	padding:30px;
+	padding-top:30px;
+}
+
++.companies {
+	list-style: none;
+}
+
+.companies li{
+	clear: both;
+	height: 115px;
+	padding-top: 15px
+}
+
+.thumb{
+	float: left;
+	height: 100px;
+	margin: -0.5em 1em 1.5em 0;
+	padding-bottom: 1em;
+	width: 100px;
 }
