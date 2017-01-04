@@ -1,0 +1,13 @@
+{
+  "name": "xfair-web-app",
+  "description": "Web app displaying information about companies at xFair 2017",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ssxyang/xfair-web-app",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.x",
+    "angular-mocks": "1.5.x",
+    "bootstrap": "3.3.x"
+  }
+}
