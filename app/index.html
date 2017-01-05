@@ -14,30 +14,43 @@
   <body ng-app="MainApp">
     <div class="container-fluid" ng-controller="Ctrl">
       <div class="row">
+        <div class="col-md-2">&nbsp;</div>
         <!--Sidebar-->
         <div class="col-md-2">
+
           <!--Search-->
-          <p><span>Search: <input ng-model="query"/></span></p>
+          <div>
+            <span>Search: <input ng-model="searchString"/></span>
+          </div>
+          <div>
+            <p>...by <b>company name</b>:<br>"acme"</p>
+            <p>...by <b>course number</b>:<br>"course 3"</p>
+            <p>...by <b>position</b>:<br>"internship"<br>"part-time"<br>"full-time"</p>
+            <p>...by <b>keyword</b>:<br>"awesome"</p>
+          </div>
+
           <!--Sort-->
-          <p>
+          <div>
             <span>Sort by:
               <select ng-model="orderProp">
                 <option value="name">Alphabetical</option>
                 <option value="boothnumber">Booth number</option>
               </select>
             </span>
-          </p>
+          </div>
         </div>
 
         <!--Main-->
-        <div class="col-md-10">
+        <div class="col-md-6">
           <ul>
-            <li ng-repeat="company in companies">
-              <p>{{ company.gsx$boothnumber.$t }} <span>{{ company.gsx$name.$t }}</span></p>
+            <li ng-repeat="company in companies | searchFor:searchString">
+              <p>{{ company.gsx$name.$t }}</p>
+              <p>Booth: {{ company.gsx$boothnumber.$t }}</p>
               <p>{{ company.gsx$snippet.$t }}</p>
             </li>
           </ul>
         </div>
+        <div class="col-md-2">&nbsp;</div>
       </div>
     </div>
     <script src="script.js"></script>
