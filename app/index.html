@@ -33,8 +33,8 @@
           <div>
             <span>Sort by:
               <select ng-model="orderProp">
-                <option value="name">Alphabetical</option>
-                <option value="boothnumber">Booth number</option>
+                <option value="gsx$name.$t">Alphabetical</option>
+                <option value="gsx$boothnumber.$t">Booth number</option>
               </select>
             </span>
           </div>
@@ -43,7 +43,7 @@
         <!--Main-->
         <div class="col-md-6">
           <ul>
-            <li ng-repeat="company in companies | searchFor:searchString">
+            <li ng-repeat="company in companies | searchFor:searchString | orderBy:orderProp">
               <p>{{ company.gsx$name.$t }}</p>
               <p>Booth: {{ company.gsx$boothnumber.$t }}</p>
               <p>{{ company.gsx$snippet.$t }}</p>
