@@ -26,22 +26,13 @@ app.controller('Ctrl', function($scope, $http) {
 		.success(function(response) {
 		$scope.companies = response.feed.entry;
 	});
-	var $scope.favoriteList = [];
+
+	$scope.favoriteList = [];
 	$scope.favoriteThis = function(company){
-		//if (favoriteList.indexOf(company) < 0)  {
-			//favoriteList.push(company);
+		if ($scope.favoriteList.indexOf(company) < 0)  {
 			$scope.favoriteList.push(company);
-			console.log(favoriteList);
-	//	};
+		};
 	};
 });
 
-/*app.controller('favCtrl', ['$scope', function($scope){
-	$scope.favoriteList = [];
-	$scope.favoriteThis = function(company){
-		//if(favoriteList.indexOf(company) !>= 0){
-			$scope.favoriteList.push(company);
-		//};
-	};
-}]);*/
 

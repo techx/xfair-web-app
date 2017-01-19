@@ -42,7 +42,7 @@
 
         <!--Main-->
         <div class="col-md-6">
-          <ul>
+          <ul id="companies">
           <p> {{favoriteList}} </p>
             <li ng-repeat="company in companies | searchFor:searchString | orderBy:orderProp">
            <span class = "badge" ng-click="favoriteThis(company)">Add to Favorites</span>
