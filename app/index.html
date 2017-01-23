@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="app.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
      <script src="http://spreadsheets.google.com/feeds/feed/1h9qPXGp2fWQNPSnYGvruMH85sY1YCqpoE42nBRksFAo/1/public/basic?alt=json-in-script&callback=myFunc"></script>
+    <script src="script.js"></script>
+    <script src="ctrl.js"></script>
   </head>
   <body ng-app="MainApp">
     <div class="container-fluid" ng-controller="Ctrl">
@@ -33,8 +35,8 @@
           <div>
             <span>Sort by:
               <select ng-model="orderProp">
-                <option value="gsx$name.$t">Alphabetical</option>
-                <option value="gsx$boothnumber.$t">Booth number</option>
+                <option value="name">Alphabetical</option>
+                <option value="boothnumber">Booth number</option>
               </select>
             </span>
           </div>
@@ -42,20 +44,66 @@
 
         <!--Main-->
         <div class="col-md-6">
-          <ul id="companies">
-          <p> {{favoriteList}} </p>
-            <li ng-repeat="company in companies | searchFor:searchString | orderBy:orderProp">
-           <span class = "badge" ng-click="favoriteThis(company)">Add to Favorites</span>
-              <p>{{ company.gsx$name.$t }}</p>
-              <p>Booth: {{ company.gsx$boothnumber.$t }}</p>
-              <p>{{ company.gsx$snippet.$t }} (<a href="{{company.gsx$website.$t}}">Learn More</a>)</p>
-            </li>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href=#home>Home</a></li>
+            <li><a data-toggle="tab" href=#companies>Companies</a></li>
+            <li><a data-toggle="tab" href=#favorites>Favorites</a></li>
+            <li><a data-toggle="tab" href=#projX>ProjX</a></li>
+             <li><a data-toggle="tab" href=#techtalks>TechTalks</a></li>
+            <li><a data-toggle="tab" href=#booths_map>Booths Map</a></li>
           </ul>
-        </div>
+
+          <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+              <h3>HOME</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div id="companies" class="tab-pane fade">
+              <ul>
+              <li ng-repeat="company in companies | searchFor:searchString">
+                <span class = "button buttonfav" ng-click="favoriteThis(company)">Add to Favorites</span>
+                 <p>{{ company.gsx$name.$t }}</p>
+                    <p> Booth: {{ company.gsx$boothnumber.$t }}</p>
+                    <p>{{ company.gsx$snippet.$t }}</p> (<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a>)
+                </li>
+              </ul>
+            </div>
+
+             <!--<h3>Companies</h3>
+              <div ng-repeat="company in companies | searchFor:searchString">
+                <button class="accordion">
+                <span class = "button buttonfav" ng-click="favoriteThis(company)">Add to Favorites</span>
+                  {{ company.gsx$name.$t }}</button>
+                  <div class="panel">
+                    <p> Booth: {{ company.gsx$boothnumber.$t }}</p>
+                    <p>{{ company.gsx$snippet.$t }}</p> (<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a>)
+                  </div>
+              </div>
+            </div>-->
+
+
+            <div id="favorites" class="tab-pane fade">
+                <ul>
+                  <li ng-repeat="company in favoriteList | searchForfav:searchString">
+                  <p>{{company.gsx$name.$t}}</p>
+                  </li>
+                </ul>
+            </div>
+           
+           <div id="projX" class="tab-pane fade">
+           <p>insert the projX stuff here</p>
+           </div>
+
+           <div id="techtalks" class="tab-pane fade">
+           <p>insert the techtalk stuff here</p>
+           </div>
+
+           <div id="booths_map" class="tab-pane fade">
+           <p>insert the picture of the booths here</p>
+           </div>
+
         <div class="col-md-2">&nbsp;</div>
       </div>
     </div>
-    <script src="script.js"></script>
-    <script src="ctrl.js"></script>
   </body>
 </html>
