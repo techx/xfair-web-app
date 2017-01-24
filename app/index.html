@@ -42,14 +42,53 @@
 
         <!--Main-->
         <div class="col-md-6">
-          <ul>
-            <li ng-repeat="company in companies | searchFor:searchString">
-              <p>{{ company.gsx$name.$t }}</p>
-              <p>Booth: {{ company.gsx$boothnumber.$t }}</p>
-              <p>{{ company.gsx$snippet.$t }}</p>
-            </li>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href=#home>Home</a></li>
+            <li><a data-toggle="tab" href=#companies>Companies</a></li>
+            <li><a data-toggle="tab" href=#favorites>Favorites</a></li>
+            <li><a data-toggle="tab" href=#projX>ProjX</a></li>
+             <li><a data-toggle="tab" href=#techtalks>TechTalks</a></li>
+            <li><a data-toggle="tab" href=#booths_map>Booths Map</a></li>
           </ul>
-        </div>
+
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div id="companies" class="tab-pane fade">
+            <h3>Companies</h3>
+              <div ng-repeat="company in companies | searchFor:searchString">
+                <span class = "button buttonfav" ng-click="favoriteThis(company)">Add to Favorites</span>
+                  {{ company.gsx$name.$t }}
+                  <!--div class="panel" ng-class=""-->
+                    <p> Booth: {{ company.gsx$boothnumber.$t }}</p>
+                    <p>{{ company.gsx$snippet.$t }}</p> (<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a>)
+                  <!--/div-->
+              </div>
+          </div>
+
+
+            <div id="favorites" class="tab-pane fade">
+                <ul>
+                  <li ng-repeat="company in favoriteList | searchForfav:searchString">
+                  <p>{{company.gsx$name.$t}}</p>
+                  </li>
+                </ul>
+            </div>
+           
+           <div id="projX" class="tab-pane fade">
+           <p>insert the projX stuff here</p>
+           </div>
+
+           <div id="techtalks" class="tab-pane fade">
+           <p>insert the techtalk stuff here</p>
+           </div>
+
+           <div id="booths_map" class="tab-pane fade">
+           <p>insert the picture of the booths here</p>
+           </div>
+
         <div class="col-md-2">&nbsp;</div>
       </div>
     </div>
