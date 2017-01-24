@@ -30,6 +30,31 @@ app.filter('searchFor', function(){
 
 });
 
+app.filter('searchForfav', function(){
+
+	return function(arr, searchString){
+
+		if(!searchString){
+			return arr;
+		}
+
+		var result = [];
+
+		searchString = searchString.toLowerCase();
+
+		angular.forEach(arr, function(company){
+
+			if(company.gsx$name.$t.toLowerCase().indexOf(searchString) !== -1){
+				result.push(company);
+			}
+
+		});
+
+		return result;
+	};
+
+});
+
 app.controller('Ctrl', function($scope, $http) {
 	
 	orderProp = 'boothnumber';
@@ -38,4 +63,11 @@ app.controller('Ctrl', function($scope, $http) {
 		.success(function(response) {
 		$scope.companies = response.feed.entry;
 	});
+	$scope.favoriteList = [];
+	$scope.favoriteThis = function(company){
+		if ($scope.favoriteList.indexOf(company) < 0)  {
+			$scope.favoriteList.push(company);
+		};
+	};
+
 });
