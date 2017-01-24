@@ -40,8 +40,8 @@
           <div>
             <span>Sort by:
               <select ng-model="orderProp">
-                <option value="name">Alphabetical</option>
-                <option value="boothnumber">Booth number</option>
+                <option value="gsx$name.$t">Alphabetical</option>
+                <option value="{{ $index }}">Booth number</option>
               </select>
             </span>
           </div>
@@ -50,10 +50,25 @@
         <!--Main-->
         <div class="col-md-6">
           <ul>
-            <li ng-repeat="company in companies | searchFor:searchString">
-              <p>{{ company.gsx$name.$t }}</p>
-              <p>Booth: {{ company.gsx$boothnumber.$t }}</p>
-              <p>{{ company.gsx$snippet.$t }}</p>
+            <li ng-repeat="company in companies | searchFor:searchString | orderBy: orderProp" class="dotted-border">
+                <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index }} ">{{ company.gsx$name.$t }}</h4>
+                <p>Booth: {{ company.gsx$boothnumber.$t}}</p>
+                <p>{{ company.gsx$snippet.$t }}</p>
+              <div class="modal" role="dialog" id="{{ $index }}">
+                <div class="modal-dialog modal-md">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-name">{{ company.gsx$name.$t }}</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Booth: {{ company.gsx$boothnumber.$t }}</p>
+                      <p>{{ company.gsx$snippet.$t }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
             </li>
           </ul>
         </div>
