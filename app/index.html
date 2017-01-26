@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="app.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
      <script src="http://spreadsheets.google.com/feeds/feed/1h9qPXGp2fWQNPSnYGvruMH85sY1YCqpoE42nBRksFAo/1/public/basic?alt=json-in-script&callback=myFunc"></script>
+     <script src="http://spreadsheets.google.com/feeds/feed/1-fbWclJYcTkEQxPJKE1Ur8mCiDBNrLeSc53dhFVssIs/1/public/basic?alt=json-in-script&callback=myFunc"></script>
   </head>
   <body ng-app="MainApp">
     <div class="container-fluid">
@@ -90,8 +91,6 @@
               </ul>
           </div>
 
-
-
             <div id="favorites" class="tab-pane fade">
                 <ul>
                   <li ng-repeat="company in favoriteList | searchForfav:searchString">
@@ -105,7 +104,39 @@
            </div>
 
            <div id="techtalks" class="tab-pane fade">
-           <p>insert the techtalk stuff here</p>
+           <h3>Tech Talks</h3>
+           <div ng-repeat="techtalk in techtalks">
+           <ul>
+           <li>
+            <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-talks'}} ">{{ techtalk.gsx$company.$t }}</h4>
+                    <p> 
+                    Date: {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}}</p>
+                  <div class="modal" role="dialog" id="{{ $index + '-talks' }}">
+                    <div class="modal-dialog modal-md">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-name">{{ techtalk.gsx$company.$t }}</h4>
+                          <p> 
+                    Date: {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}}</p>
+                        </div>
+                        <div class="modal-body">
+                          <p>{{ techtalk.gsx$description.$t}} </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+              </ul>
+              <!--div ng-repeat="techtalk in techtalks">
+               <ul>
+                 <li> <h4>{{techtalk.gsx$company.$t}} </h4>
+                    <p> 
+                    Date: {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}}</p>
+                    <p>{{ techtalk.gsx$description.$t}} </p>
+                 </li>
+               </ul>
+              </div-->
            </div>
 
            <div id="booths_map" class="tab-pane fade">

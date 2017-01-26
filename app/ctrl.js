@@ -68,4 +68,9 @@ app.controller('Ctrl', function($scope, $http) {
 			$scope.favoriteList.push(company);
 		};
 	};
+
+	$http.get("https://spreadsheets.google.com/feeds/list/1-fbWclJYcTkEQxPJKE1Ur8mCiDBNrLeSc53dhFVssIs/1/public/values?alt=json")
+		.success(function(response) {
+		$scope.techtalks = response.feed.entry;
+	});
 });
