@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
      <script src="http://spreadsheets.google.com/feeds/feed/1h9qPXGp2fWQNPSnYGvruMH85sY1YCqpoE42nBRksFAo/1/public/basic?alt=json-in-script&callback=myFunc"></script>
      <script src="http://spreadsheets.google.com/feeds/feed/1-fbWclJYcTkEQxPJKE1Ur8mCiDBNrLeSc53dhFVssIs/1/public/basic?alt=json-in-script&callback=myFunc"></script>
+      <script src="http://spreadsheets.google.com/feeds/feed/1fh7Vrx3O-vTnMY5Gcmpu-qz91Y1wFx9Xf6xFnopb8Ew/1/public/basic?alt=json-in-script&callback=myFunc"></script>
   </head>
   <body ng-app="MainApp">
     <div class="container-fluid">
@@ -23,6 +24,7 @@
     <div class="container-fluid" ng-controller="Ctrl">
       <div class="row">
         <div class="col-md-2">&nbsp;</div>
+        
         <!--Sidebar-->
         <div class="col-md-2">
 
@@ -60,19 +62,23 @@
           </ul>
 
         <div class="tab-content">
+          <!--HOME tab-->
           <div id="home" class="tab-pane fade in active">
             <h3>HOME</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
+          
+          <!--companies tab-->
           <div id="companies" class="tab-pane fade">
             <h3>Companies</h3>
               <ul>
                 <li ng-repeat="company in companies | searchFor:searchString | orderBy: orderProp" class="dotted-border">
-                    <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index }} ">{{ company.gsx$name.$t }}</h4>
-                    <p>Booth: {{ company.gsx$boothnumber.$t}}</p>
-                    <p>{{ company.gsx$snippet.$t }}</p>
-                    (<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a>)
-                    <span class = "button buttonfav" ng-click="favoriteThis(company)">Add to Favorites</span>
+                    <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index }} ">{{ company.gsx$name.$t }} </h4> 
+                      <p>Booth: {{ company.gsx$boothnumber.$t}}</p>
+                      <p><span class = "button buttonfav" ng-click="favoriteThis(company)">Add to Favorites</span></p>
+                      <p>{{ company.gsx$snippet.$t }}</p>
+                      (<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a>)
+                  
                   <div class="modal" role="dialog" id="{{ $index }}">
                     <div class="modal-dialog modal-md">
                       <div class="modal-content">
@@ -84,6 +90,10 @@
                           <p>Booth: {{ company.gsx$boothnumber.$t }}</p>
                           <p>{{ company.gsx$snippet.$t }}</p>
                         </div>
+                        <div class="modal-footer">
+                          <p> Majors: {{company.gsx$majors.$t}}</p>
+                          <p> Positions: {{company.gsx$positions.$t}}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -91,53 +101,89 @@
               </ul>
           </div>
 
-            <div id="favorites" class="tab-pane fade">
-                <ul>
-                  <li ng-repeat="company in favoriteList | searchForfav:searchString">
-                  <p>{{company.gsx$name.$t}}</p>
-                  </li>
-                </ul>
-            </div>
-           
-           <div id="projX" class="tab-pane fade">
-           <p>insert the projX stuff here</p>
-           </div>
-
-           <div id="techtalks" class="tab-pane fade">
-           <h3>Tech Talks</h3>
-           <div ng-repeat="techtalk in techtalks">
-           <ul>
-           <li>
-            <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-talks'}} ">{{ techtalk.gsx$company.$t }}</h4>
-                    <p> 
-                    Date: {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}}</p>
-                  <div class="modal" role="dialog" id="{{ $index + '-talks' }}">
+          <div id="favorites" class="tab-pane fade">
+          <h3> Favorites </h3>
+            <ul>
+                <li ng-repeat="company in favoriteList | searchForfav:searchString">
+                   <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-fav'}} ">{{ company.gsx$name.$t }} </h4> 
+                      <p>Booth: {{ company.gsx$boothnumber.$t}}</p>
+                      <p>{{ company.gsx$snippet.$t }}</p>
+                      (<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a>)
+                  
+                  <div class="modal" role="dialog" id="{{ $index + '-fav'}}">
                     <div class="modal-dialog modal-md">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-name">{{ techtalk.gsx$company.$t }}</h4>
-                          <p> 
-                    Date: {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}}</p>
+                          <h4 class="modal-name">{{ company.gsx$name.$t }}</h4>
                         </div>
                         <div class="modal-body">
-                          <p>{{ techtalk.gsx$description.$t}} </p>
+                          <p>Booth: {{ company.gsx$boothnumber.$t }}</p>
+                          <p>{{ company.gsx$snippet.$t }}</p>
+                        </div>
+                        <div class="modal-footer">
+                          <p> Majors: {{company.gsx$majors.$t}}</p>
+                          <p> Positions: {{company.gsx$positions.$t}}</p>
                         </div>
                       </div>
                     </div>
                   </div>
+                </li>
+            </ul>
+          </div>
+           
+          <div id="projX" class="tab-pane fade">
+            <h3>ProjX Booths</h3>
+            <ul>
+              <li ng-repeat="project in projects">
+                <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-projx'}} ">{{ project.gsx$title.$t }}</h4>
+                  <p> {{project.gsx$names.$t}} </p>
+                  <p> Booth Number: {{ project.gsx$thing.$t }} </p>
+                
+                <div class="modal" role="dialog" id="{{ $index + '-projx' }}">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-name">{{ project.gsx$title.$t }}</h4>
+                            <p> Booth Number: {{project.gsx$thing.$t}} | {{ project.gsx$names.$t}}</p>
+                      </div>
+                      <div class="modal-body">
+                        <p>{{ project.gsx$snippet.$t}} </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </li>
-              </ul>
-              <!--div ng-repeat="techtalk in techtalks">
-               <ul>
-                 <li> <h4>{{techtalk.gsx$company.$t}} </h4>
-                    <p> 
-                    Date: {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}}</p>
-                    <p>{{ techtalk.gsx$description.$t}} </p>
-                 </li>
-               </ul>
-              </div-->
-           </div>
+            </ul>
+          </div>
+
+
+          <div id="techtalks" class="tab-pane fade">
+            <h3>Tech Talks</h3>
+            <ul>
+              <li ng-repeat="techtalk in techtalks">
+                <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-talks'}} ">{{ techtalk.gsx$company.$t }}</h4>
+                  <p> {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}}</p>
+                
+                <div class="modal" role="dialog" id="{{ $index + '-talks' }}">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-name">{{ techtalk.gsx$company.$t }}</h4>
+                        <p> {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}} </p>
+                      </div>
+                      <div class="modal-body">
+                        <p>{{ techtalk.gsx$description.$t}} </p>
+                        <p> <a href="{{techtalk.gsx$rsvp.$t}}" target="_blank"> <span class = "button buttonrsvp"> RSVP </span> </a> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
 
            <div id="booths_map" class="tab-pane fade">
            <p>insert the picture of the booths here</p>
