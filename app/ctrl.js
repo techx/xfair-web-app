@@ -56,7 +56,7 @@ app.filter('searchForfav', function(){
 });
 
 app.controller('Ctrl', function($scope, $http) {
-	
+
 	$http.get("https://spreadsheets.google.com/feeds/list/1h9qPXGp2fWQNPSnYGvruMH85sY1YCqpoE42nBRksFAo/1/public/values?alt=json")
 		.success(function(response) {
 		$scope.companies = response.feed.entry;
@@ -66,6 +66,9 @@ app.controller('Ctrl', function($scope, $http) {
 	$scope.favoriteThis = function(company){
 		if ($scope.favoriteList.indexOf(company) < 0)  {
 			$scope.favoriteList.push(company);
+		}else{
+			var index = $scope.favoriteList.indexOf(company);
+			$scope.favoriteList.splice(index,1);
 		};
 	};
 
@@ -73,4 +76,17 @@ app.controller('Ctrl', function($scope, $http) {
 		.success(function(response) {
 		$scope.techtalks = response.feed.entry;
 	});
+
+	$http.get("https://spreadsheets.google.com/feeds/list/1fh7Vrx3O-vTnMY5Gcmpu-qz91Y1wFx9Xf6xFnopb8Ew/1/public/values?alt=json")
+		.success(function(response) {
+		$scope.projects = response.feed.entry;
+	});
+});
+
+app.controller('classCtrl', function($scope) {
+	$scope.isClicked = false;
+	$scope.clickedButton = function(){
+		$scope.isClicked = !$scope.isClicked;
+	};
+	
 });
