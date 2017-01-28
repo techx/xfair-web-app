@@ -73,9 +73,12 @@
             <h3>Companies</h3>
               <ul>
                 <li ng-repeat="company in companies | searchFor:searchString | orderBy: orderProp" class="dotted-border">
-                    <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index }} ">{{ company.gsx$name.$t }} </h4> 
-                      <p>Booth: {{ company.gsx$boothnumber.$t}}</p>
-                      <p><span class = "button buttonfav" ng-click="favoriteThis(company)">Add to Favorites</span></p>
+                    <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index }} ">{{ company.gsx$name.$t }}
+                    </h4>
+                    <div ng-controller="classCtrl">
+                  		<span class = "button buttonfav" ng-class="{'clicked':isClicked}" ng-click="favoriteThis(company); clickedButton()"></span>
+                  	</div>
+                      <p>Booth: {{ company.gsx$boothnumber.$t}} </p>
                       <p>{{ company.gsx$snippet.$t }}</p>
                       (<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a>)
                   

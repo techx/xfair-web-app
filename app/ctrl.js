@@ -66,6 +66,9 @@ app.controller('Ctrl', function($scope, $http) {
 	$scope.favoriteThis = function(company){
 		if ($scope.favoriteList.indexOf(company) < 0)  {
 			$scope.favoriteList.push(company);
+		}else{
+			var index = $scope.favoriteList.indexOf(company);
+			$scope.favoriteList.splice(index,1);
 		};
 	};
 
@@ -78,4 +81,12 @@ app.controller('Ctrl', function($scope, $http) {
 		.success(function(response) {
 		$scope.projects = response.feed.entry;
 	});
+});
+
+app.controller('classCtrl', function($scope) {
+	$scope.isClicked = false;
+	$scope.clickedButton = function(){
+		$scope.isClicked = !$scope.isClicked;
+	};
+	
 });
