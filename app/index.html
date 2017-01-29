@@ -42,10 +42,10 @@
           <!--Sort-->
           <div>
             <span>Sort by:
-              <select ng-model="orderProp">
+              <span class="black"><select ng-model="orderProp">
                 <option value="gsx$name.$t">Alphabetical</option>
                 <option value="{{ $index }}">Booth number</option>
-              </select>
+              </select></span>
             </span>
           </div>
         </div>
@@ -65,22 +65,23 @@
           <!--HOME tab-->
           <div id="home" class="tab-pane fade in active">
             <h3>HOME</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Welcome to xFair 2017! Browse company listings, support your friends' ProjX exhibitions, look up TechTalk times, and more.<br><br>If you have any questions during the fair, please visit Help Desk or reach out to anyone with an xFair Exec shirt.</p>
           </div>
           
           <!--companies tab-->
           <div id="companies" class="tab-pane fade">
-            <h3>Companies</h3>
-              <ul>
+            <h3>COMPANIES</h3>
+              <ul class="content-ul">
                 <li ng-repeat="company in companies | searchFor:searchString | orderBy: orderProp" class="dotted-border">
-                    <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index }} ">{{ company.gsx$name.$t }}
-                    </h4>
+                  <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index }} ">{{ company.gsx$name.$t }}</h4>
+                  <div class="flex">
                     <div ng-controller="classCtrl">
-                  		<span class = "button buttonfav" ng-class="{'clicked':isClicked}" ng-click="favoriteThis(company); clickedButton()"></span>
+                  	 <span class = "button buttonfav" ng-class="{'clicked':isClicked}" ng-click="favoriteThis(company); clickedButton()"></span>
                   	</div>
-                      <p>Booth: {{ company.gsx$boothnumber.$t}} </p>
-                      <p>{{ company.gsx$snippet.$t }}</p>
-                      (<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a>)
+                    <p>&nbsp;&nbsp;&nbsp;Booth: {{ company.gsx$boothnumber.$t}} </p>
+                  </div>
+                  <p>{{ company.gsx$snippet.$t }}</p>
+                  <div class="special-padding">>>&nbsp;&nbsp;<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a></div>
                   
                   <div class="modal" role="dialog" id="{{ $index }}">
                     <div class="modal-dialog modal-md">
@@ -105,13 +106,13 @@
           </div>
 
           <div id="favorites" class="tab-pane fade">
-          <h3> Favorites </h3>
-            <ul>
-                <li ng-repeat="company in favoriteList | searchForfav:searchString">
+          <h3> FAVORITES </h3>
+            <ul class="content-ul">
+                <li ng-repeat="company in favoriteList | searchForfav:searchString" class="dotted-border">
                    <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-fav'}} ">{{ company.gsx$name.$t }} </h4> 
                       <p>Booth: {{ company.gsx$boothnumber.$t}}</p>
                       <p>{{ company.gsx$snippet.$t }}</p>
-                      (<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a>)
+                      <div class="special-padding">>>&nbsp;&nbsp;<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a></div>
                   
                   <div class="modal" role="dialog" id="{{ $index + '-fav'}}">
                     <div class="modal-dialog modal-md">
@@ -136,9 +137,9 @@
           </div>
            
           <div id="projX" class="tab-pane fade">
-            <h3>ProjX Booths</h3>
-            <ul>
-              <li ng-repeat="project in projects">
+            <h3>PROJX BOOTHS</h3>
+            <ul class="content-ul">
+              <li ng-repeat="project in projects" class="dotted-border">
                 <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-projx'}} ">{{ project.gsx$title.$t }}</h4>
                   <p> {{project.gsx$names.$t}} </p>
                   <p> Booth Number: {{ project.gsx$thing.$t }} </p>
@@ -149,7 +150,7 @@
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                           <h4 class="modal-name">{{ project.gsx$title.$t }}</h4>
-                            <p> Booth Number: {{project.gsx$thing.$t}} | {{ project.gsx$names.$t}}</p>
+                            <p class="special-padding"> Booth Number: {{project.gsx$thing.$t}} | {{ project.gsx$names.$t}}</p>
                       </div>
                       <div class="modal-body">
                         <p>{{ project.gsx$snippet.$t}} </p>
@@ -163,9 +164,9 @@
 
 
           <div id="techtalks" class="tab-pane fade">
-            <h3>Tech Talks</h3>
-            <ul>
-              <li ng-repeat="techtalk in techtalks">
+            <h3>TECH TALKS</h3>
+            <ul class="content-ul">
+              <li ng-repeat="techtalk in techtalks" class="dotted-border">
                 <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-talks'}} ">{{ techtalk.gsx$company.$t }}</h4>
                   <p> {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}}</p>
                 
