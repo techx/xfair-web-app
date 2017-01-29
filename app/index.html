@@ -14,55 +14,53 @@
       <script src="http://spreadsheets.google.com/feeds/feed/1fh7Vrx3O-vTnMY5Gcmpu-qz91Y1wFx9Xf6xFnopb8Ew/1/public/basic?alt=json-in-script&callback=myFunc"></script>
   </head>
   <body ng-app="MainApp">
+  <div class="container-fluid" ng-controller="Ctrl"> 
+  <!--navbar-->
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12" id="header">
-          <img src="images/xfair-header.svg" id="xfair">
-        </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">xFair 2017<!--img src="images/xfair-header.svg" id="xfair"--></a>
       </div>
-    </div>
-    
-    <div class="container-fluid" ng-controller="Ctrl">
-      <div class="row">
-        <div class="col-md-2">&nbsp;</div>
-        
-        <!--Sidebar-->
-        <div class="col-md-2">
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#home" data-toggle="tab">Home</a></li>
+          <li><a href="#companies" data-toggle="tab">Companies</a></li>
+          <li><a href="#favorites" data-toggle="tab">Favorites</a></li>
+          <li><a href="#projX" data-toggle="tab">ProjX</a></li>
+          <li><a href="#techtalks" data-toggle="tab">TechTalks</a></li>
+          <li><a href="#booths_map" data-toggle="tab">Booth Map</a> </li>
 
-          <!--Search-->
-          <div>
-            <span>Search: <input ng-model="searchString"/></span>
-          </div>
-          <div>
-            <p>...by <b>company name</b>:<br>"acme"</p>
-            <p>...by <b>course number</b>:<br>"course 3"</p>
-            <p>...by <b>position</b>:<br>"internship"<br>"part-time"<br>"full-time"</p>
-            <p>...by <b>keyword</b>:<br>"awesome"</p>
-          </div>
-
-          <!--Sort-->
-          <div>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
             <span>Sort by:
               <span class="black"><select ng-model="orderProp">
                 <option value="gsx$name.$t">Alphabetical</option>
                 <option value="{{ $index }}">Booth number</option>
               </select></span>
             </span>
-          </div>
-        </div>
-
-        <!--Main-->
-        <div class="col-md-6">
-          <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href=#home>Home</a></li>
-            <li><a data-toggle="tab" href=#companies>Companies</a></li>
-            <li><a data-toggle="tab" href=#favorites>Favorites</a></li>
-            <li><a data-toggle="tab" href=#projX>ProjX</a></li>
-             <li><a data-toggle="tab" href=#techtalks>TechTalks</a></li>
-            <li><a data-toggle="tab" href=#booths_map>Booths Map</a></li>
-          </ul>
-
-        <div class="tab-content">
+          </li>
+          <li><span class="glyphicon glyphicon-search"></span><span>  Search: <input ng-model="searchString"/>
+          </span></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">how to search<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <p>...by <b>company name</b>:<br>"acme"</p>
+              <p>...by <b>course number</b>:<br>"course 3"</p>
+              <p>...by <b>position</b>:<br>"internship"<br>"part-time"<br>"full-time"</p>
+              <p>...by <b>keyword</b>:<br>"awesome"</p>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+      <div class="tab-content">
           <!--HOME tab-->
           <div id="home" class="tab-pane fade in active">
             <h3>HOME</h3>
