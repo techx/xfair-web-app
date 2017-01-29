@@ -42,29 +42,6 @@ ul {
 	font-weight:500;
 }
 
-.modal {
-	color:black;
-}
-
-.modal-footer{
-    text-align: left;
-}
-
-h4 {
-	cursor:pointer;
-	margin-top:25px;
-}
-
-.content-ul a {
-	color:#e5eec1;
-}
-
-.content-ul a:hover {
-	color:#e5eec1;
-	font-weight:500;
-	text-decoration:none;
-}
-
 input {
 	margin:10px 0;
 	color:black;
@@ -75,6 +52,28 @@ select {
 	border-radius:0;
 }
 
+/* BODY*/
+/*headers*/
+
+h4 {
+	cursor:pointer;
+	margin-top:25px;
+}
+
+h3{
+	text-align: center;
+}
+
+/*links in main list*/
+.content-ul a {
+	color:#e5eec1;
+}
+
+.content-ul a:hover {
+	color:#e5eec1;
+	font-weight:500;
+	text-decoration:none;
+}
 .dotted-border {
 	list-style:none;
 	margin:15px 0;
@@ -91,6 +90,27 @@ footer {
 	text-align:center;
 	margin-top:30px;
 }
+
+/*Modal boxes*/
+
+.modal {
+	color:black;
+}
+
+.modal-footer{
+    text-align: left;
+}
+
+.modal-body a{
+	color:#3EACA8;
+}
+
+.modal-body a:hover{
+	color:#547a82;
+	font-weight:500;
+	text-decoration:none;
+}
+/*Buttons*/
 
 .button{
     color: white;
@@ -134,11 +154,13 @@ footer {
 }
 
 .buttonrsvp{
-    background-color: #4175CE; /* Lightblue */
+    background-color: rgba(255,255,255,0); /* transparent */
     border: 1px solid #4175CE; /* Lightblue */
+    color: #4175CE; 
 }
 
 .buttonrsvp:hover{
-    background-color: #152B51; /*darker version of Lightblue*/
+    background-color: #4175CE; /*darker version of Lightblue*/
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    color: #FFFFFF;
 }

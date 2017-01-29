@@ -21,6 +21,7 @@
         </div>
       </div>
     </div>
+    
     <div class="container-fluid" ng-controller="Ctrl">
       <div class="row">
         <div class="col-md-2">&nbsp;</div>
@@ -179,7 +180,7 @@
                         <p> {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}} </p>
                       </div>
                       <div class="modal-body">
-                        <p>{{ techtalk.gsx$description.$t}} </p>
+                        <p>{{ techtalk.gsx$description.$t}} <a href="{{techtalk.gsx$url.$t}}">{{techtalk.gsx$urltext.$t}}</a></p>
                         <p> <a href="{{techtalk.gsx$rsvp.$t}}" target="_blank"> <span class = "button buttonrsvp"> RSVP </span> </a> </p>
                       </div>
                     </div>
