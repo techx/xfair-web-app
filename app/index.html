@@ -13,6 +13,22 @@
      <script src="http://spreadsheets.google.com/feeds/feed/1-fbWclJYcTkEQxPJKE1Ur8mCiDBNrLeSc53dhFVssIs/1/public/basic?alt=json-in-script&callback=myFunc"></script>
       <script src="http://spreadsheets.google.com/feeds/feed/1fh7Vrx3O-vTnMY5Gcmpu-qz91Y1wFx9Xf6xFnopb8Ew/1/public/basic?alt=json-in-script&callback=myFunc"></script>
   </head>
+  
+  <!-- Fixed navigation bar-->
+  <nav class="fixed-nav-bar">
+    <div id="menu" class="menu">
+      <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href=#home>Home</a></li>
+          <li><a data-toggle="tab" href=#companies>Companies</a></li>
+          <li><a data-toggle="tab" href=#favorites>Favorites</a></li>
+          <li><a data-toggle="tab" href=#projX>ProjX</a></li>
+           <li><a data-toggle="tab" href=#techtalks>TechTalks</a></li>
+          <li><a data-toggle="tab" href=#booths_map>Booths Map</a></li>
+          <li><span>Search: <input ng-model="searchString"/></span></li>          
+      </ul>
+    </div> 
+  </nav> 
+
   <body ng-app="MainApp">
     <div class="container-fluid">
       <div class="row">
@@ -29,9 +45,10 @@
         <div class="col-md-2">
 
           <!--Search-->
+          <!--
           <div>
             <span>Search: <input ng-model="searchString"/></span>
-          </div>
+          </div>-->
           <div>
             <p>...by <b>company name</b>:<br>"acme"</p>
             <p>...by <b>course number</b>:<br>"course 3"</p>
@@ -51,7 +68,7 @@
         </div>
 
         <!--Main-->
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href=#home>Home</a></li>
             <li><a data-toggle="tab" href=#companies>Companies</a></li>
@@ -59,14 +76,14 @@
             <li><a data-toggle="tab" href=#projX>ProjX</a></li>
              <li><a data-toggle="tab" href=#techtalks>TechTalks</a></li>
             <li><a data-toggle="tab" href=#booths_map>Booths Map</a></li>
-          </ul>
+          </ul> --> 
 
-        <div class="tab-content">
-          <!--HOME tab-->
+        <div class="tab-content"> 
+          <!--HOME tab--> 
           <div id="home" class="tab-pane fade in active">
             <h3>HOME</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
+          </div> 
           
           <!--companies tab-->
           <div id="companies" class="tab-pane fade">
@@ -90,7 +107,7 @@
                           <h4 class="modal-name">{{ company.gsx$name.$t }}</h4>
                         </div>
                         <div class="modal-body">
-                          <p>Booth: {{ company.gsx$boothnumber.$t }}</p>
+                          <p> Booth: {{ company.gsx$boothnumber.$t }}</p>
                           <p>{{ company.gsx$snippet.$t }}</p>
                         </div>
                         <div class="modal-footer">
@@ -193,7 +210,7 @@
            </div>
 
         <div class="col-md-2">&nbsp;</div>
-      </div>
+      </div> 
     </div>
     <script src="script.js"></script>
     <script src="ctrl.js"></script>
