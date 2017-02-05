@@ -30,6 +30,56 @@ app.filter('searchFor', function(){
 
 });
 
+app.filter('searchForprojx', function(){
+
+	return function(arr, searchString){
+
+		if(!searchString){
+			return arr;
+		}
+
+		var result = [];
+
+		searchString = searchString.toLowerCase();
+
+		angular.forEach(arr, function(project){
+
+			if(project.gsx$title.$t.toLowerCase().indexOf(searchString) !== -1 || project.gsx$names.$t.toLowerCase().indexOf(searchString) !== -1 || project.gsx$snippet.$t.toLowerCase().indexOf(searchString) !== -1){
+				result.push(project);
+			}
+
+		});
+
+		return result;
+	};
+
+});
+
+app.filter('searchFortechtalks', function(){
+
+	return function(arr, searchString){
+
+		if(!searchString){
+			return arr;
+		}
+
+		var result = [];
+
+		searchString = searchString.toLowerCase();
+
+		angular.forEach(arr, function(techtalk){
+
+			if(techtalk.gsx$company.$t.toLowerCase().indexOf(searchString) !== -1 || techtalk.gsx$date.$t.toLowerCase().indexOf(searchString) !== -1 || techtalk.gsx$title.$t.toLowerCase().indexOf(searchString) !== -1 || techtalk.gsx$description.$t.toLowerCase().indexOf(searchString) !== -1){
+				result.push(techtalk);
+			}
+
+		});
+
+		return result;
+	};
+
+});
+
 app.filter('searchForfav', function(){
 
 	return function(arr, searchString){
