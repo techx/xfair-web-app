@@ -6,20 +6,82 @@ body {
 }
 
 .nav li a {
-	color:white;
-}
-
-.nav li a:hover {
 	color:#547a82;
 }
 
-#header {
-	text-align:center;
-	margin-bottom:30px;
+.nav li a:hover {
+	color:#3EACA8;
 }
 
+/*background color of navbar*/
+.navbar{
+	background-color: #3EACA8;
+	border: white;
+	position: fixed;
+  	top: 0;
+  	left: 0;
+  	z-index: 9999;
+  	width: 100%;
+}
+
+/*xFair words in corner colors*/
+.navbar-inverse .navbar-brand {
+  color: #ffffff;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #fff;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+/*other navbar categories*/
+.navbar-inverse .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+  font-weight: 500;
+  background-color: #547A82; 
+}
+
+/*click on the categories*/
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #547A82;
+}
+.navbar-inverse .navbar-nav > .disabled > a,
+.navbar-inverse .navbar-nav > .disabled > a:hover,
+.navbar-inverse .navbar-nav > .disabled > a:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+/*toggle button*/
+.navbar-inverse .navbar-toggle {
+  border-color: #fff;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus{
+  background-color: #547A82;
+}
+
+/*dropdown "how to search" background color*/
+.dropdown-menu{
+	background-color: #547A82;
+}
+
+/*xfair logo*/
 #xfair {
-	width:500px;
+	width:50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px ;
+	display: block;
 }
 
 ul {
@@ -120,7 +182,6 @@ footer {
 /*Buttons*/
 
 .button{
-    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
