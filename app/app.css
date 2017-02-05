@@ -164,6 +164,7 @@ footer {
 
 .modal {
 	color:black;
+	margin-top: 100px;
 }
 
 .modal-footer{
@@ -234,8 +235,8 @@ footer {
 }
 
 #boothmappic{
-	width: 50%;
-	height: 50%; 
+	width: 90%;
+	height: 90%; 
 	margin-left:auto;
 	margin-right: auto;
 	display: block;
