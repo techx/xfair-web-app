@@ -15,7 +15,8 @@ body {
 
 /*background color of navbar*/
 .navbar{
-	background-color: #3EACA8;
+	/*background-color: rgba(84, 122, 130, 0.5);*/
+	background-color:#5A5050;
 	border: white;
 	position: fixed;
   	top: 0;
