@@ -155,10 +155,10 @@
           <div id="projX" class="tab-pane fade">
             <h3>PROJX BOOTHS</h3>
             <ul class="content-ul">
-              <li ng-repeat="project in projects" class="dotted-border">
+              <li ng-repeat="project in projects | searchForprojx:searchString" class="dotted-border">
                 <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-projx'}} ">{{ project.gsx$title.$t }}</h4>
                   <p> {{project.gsx$names.$t}} </p>
-                  <p> Booth Number: {{ project.gsx$thing.$t }} </p>
+                  <p> Booth Number: {{ project.gsx$booth.$t }} </p>
                 
                 <div class="modal" role="dialog" id="{{ $index + '-projx' }}">
                   <div class="modal-dialog modal-md">
@@ -166,7 +166,7 @@
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                           <h4 class="modal-name">{{ project.gsx$title.$t }}</h4>
-                            <p class="special-padding"> Booth Number: {{project.gsx$thing.$t}} | {{ project.gsx$names.$t}}</p>
+                            <p class="special-padding"> Booth Number: {{project.gsx$booth.$t}} | {{ project.gsx$names.$t}}</p>
                       </div>
                       <div class="modal-body">
                         <p>{{ project.gsx$snippet.$t}} </p>
@@ -182,7 +182,7 @@
           <div id="techtalks" class="tab-pane fade">
             <h3>TECH TALKS</h3>
             <ul class="content-ul">
-              <li ng-repeat="techtalk in techtalks" class="dotted-border">
+              <li ng-repeat="techtalk in techtalks | searchFortechtalks:searchString" class="dotted-border">
                 <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-talks'}} ">{{ techtalk.gsx$company.$t }}</h4>
                   <p> {{techtalk.gsx$date.$t}} | Location: {{techtalk.gsx$room.$t}}</p>
                 
