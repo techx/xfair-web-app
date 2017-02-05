@@ -14,59 +14,74 @@
       <script src="http://spreadsheets.google.com/feeds/feed/1fh7Vrx3O-vTnMY5Gcmpu-qz91Y1wFx9Xf6xFnopb8Ew/1/public/basic?alt=json-in-script&callback=myFunc"></script>
   </head>
   <body ng-app="MainApp">
+  <!--navbar-->
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12" id="header">
-          <img src="images/xfair-header.svg" id="xfair">
-        </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#home" data-toggle="tab">xFair 2017<!--img src="images/xfair-header.svg" id="xfair"--></a>
       </div>
-    </div>
-    
-    <div class="container-fluid" ng-controller="Ctrl">
-      <div class="row">
-        <div class="col-md-2">&nbsp;</div>
-        
-        <!--Sidebar-->
-        <div class="col-md-2">
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#companies" data-toggle="tab">Companies</a></li>
+          <li><a href="#favorites" data-toggle="tab">Favorites</a></li>
+          <li><a href="#projX" data-toggle="tab">ProjX</a></li>
+          <li><a href="#techtalks" data-toggle="tab">TechTalks</a></li>
+          <li><a href="#booths_map" data-toggle="tab">Booth Map</a> </li>
 
-          <!--Search-->
-          <div>
-            <span>Search: <input ng-model="searchString"/></span>
-          </div>
-          <div>
-            <p>...by <b>company name</b>:<br>"acme"</p>
-            <p>...by <b>course number</b>:<br>"course 3"</p>
-            <p>...by <b>position</b>:<br>"internship"<br>"part-time"<br>"full-time"</p>
-            <p>...by <b>keyword</b>:<br>"awesome"</p>
-          </div>
-
-          <!--Sort-->
-          <div>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>&nbsp;&nbsp;&nbsp;
             <span>Sort by:
               <span class="black"><select ng-model="orderProp">
                 <option value="gsx$name.$t">Alphabetical</option>
                 <option value="{{ $index }}">Booth number</option>
               </select></span>
             </span>
-          </div>
-        </div>
-
-        <!--Main-->
-        <div class="col-md-6">
-          <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href=#home>Home</a></li>
-            <li><a data-toggle="tab" href=#companies>Companies</a></li>
-            <li><a data-toggle="tab" href=#favorites>Favorites</a></li>
-            <li><a data-toggle="tab" href=#projX>ProjX</a></li>
-             <li><a data-toggle="tab" href=#techtalks>TechTalks</a></li>
-            <li><a data-toggle="tab" href=#booths_map>Booths Map</a></li>
-          </ul>
-
-        <div class="tab-content">
+          </li>
+          <li>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span><span>  Search: <input ng-model="searchString"/>
+          </span></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">how to search<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <p>&nbsp;&nbsp;...by <b>company name</b>:<br>&nbsp;&nbsp;&nbsp;"acme"</p>
+              <p>&nbsp;&nbsp;...by <b>course number</b>:<br>&nbsp;&nbsp;&nbsp;"course 3"</p>
+              <p>&nbsp;&nbsp;...by <b>position</b>:<br>&nbsp;&nbsp;&nbsp;"internship"<br>&nbsp;&nbsp;&nbsp;"part-time"<br>&nbsp;&nbsp;&nbsp;"full-time"</p>
+              <p>&nbsp;&nbsp;...by <b>keyword</b>:<br>&nbsp;&nbsp;&nbsp;"awesome"</p>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" id="header">
+        <img src="images/xfair-header.svg" id="xfair">
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" ng-controller="Ctrl"> 
+      <div class="tab-content">
           <!--HOME tab-->
           <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            <p>Welcome to xFair 2017! Browse company listings, support your friends' ProjX exhibitions, look up TechTalk times, and more.<br><br>If you have any questions during the fair, please visit Help Desk or reach out to anyone with an xFair Exec shirt.</p>
+               <h3 style="font-size:40px"> <font color="#5A5050">HOME</font></h3>
+            <p style="font-size:15px">Welcome to xFair 2017! Browse company listings, support your friends' ProjX exhibitions, look up TechTalk times, and more.<br>If you have any questions during the fair, please visit Help Desk or reach out to anyone with an xFair Exec shirt.</p>
+
+            <!-- Schedule -->   
+            <p style="font-size:25px"> <font color="#547A82"><b>Schedule of Events</b></font></p>
+            <!-- how do you reduce line gap --> 
+            <p style="font-size:15px">February 6, 2017</p>
+            <p style="font-size:15px"><font color="#547A82">xFair</font> 
+            <br>10AM-4PM Rockwell Cage, MIT Zesiger Center
+            <br>100+ companies from a wide variety of industries and 50+ student projects. The latest and greatest in industry tech, startups, and student talent.</p>
+            <p style="font-size:15px"><font color="#547A82">Banquet</font>
+            <br>6PM-8:30PM Invite Only 
+            <br>Invite only. Dine and network with recruiters and industry specialists from our selected sponsors.</p>
           </div>
           
           <!--companies tab-->
@@ -82,7 +97,7 @@
                     <p>&nbsp;&nbsp;&nbsp;Booth: {{ company.gsx$boothnumber.$t}} </p>
                   </div>
                   <p>{{ company.gsx$snippet.$t }}</p>
-                  <div class="special-padding">>>&nbsp;&nbsp;<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a></div>
+                  <div class="special-padding"> >>&nbsp;&nbsp;<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a></div>
                   
                   <div class="modal" role="dialog" id="{{ $index }}">
                     <div class="modal-dialog modal-md">
@@ -191,7 +206,7 @@
           </div>
 
            <div id="booths_map" class="tab-pane fade">
-           <p>insert the picture of the booths here</p>
+           <p><img src="images/booths.svg"></p>
            </div>
 
         <div class="col-md-2">&nbsp;</div>
