@@ -19,7 +19,7 @@ app.filter('searchFor', function(){
 
 		angular.forEach(arr, function(company){
 
-			if(company.gsx$name.$t.toLowerCase().indexOf(searchString) !== -1 || company.gsx$majors.$t.toLowerCase().indexOf(searchString) !== -1 || company.gsx$positions.$t.toLowerCase().indexOf(searchString) !== -1 || company.gsx$snippet.$t.toLowerCase().indexOf(searchString) !== -1){
+			if(company.gsx$name.$t.toLowerCase().indexOf(searchString) !== -1 || company.gsx$majorsearch.$t.toLowerCase().indexOf(searchString) !== -1 || company.gsx$positions.$t.toLowerCase().indexOf(searchString) !== -1 || company.gsx$snippet.$t.toLowerCase().indexOf(searchString) !== -1){
 				result.push(company);
 			}
 

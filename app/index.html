@@ -14,7 +14,6 @@
       <script src="http://spreadsheets.google.com/feeds/feed/1fh7Vrx3O-vTnMY5Gcmpu-qz91Y1wFx9Xf6xFnopb8Ew/1/public/basic?alt=json-in-script&callback=myFunc"></script>
   </head>
   <body ng-app="MainApp">
-  <div class="container-fluid" ng-controller="Ctrl"> 
   <!--navbar-->
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -24,11 +23,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
         </button>
-        <a class="navbar-brand" href="#">xFair 2017<!--img src="images/xfair-header.svg" id="xfair"--></a>
+        <a class="navbar-brand" href="#home" data-toggle="tab">img src="images/xfair-header.svg" id="xfair"</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="#home" data-toggle="tab">Home</a></li>
           <li><a href="#companies" data-toggle="tab">Companies</a></li>
           <li><a href="#favorites" data-toggle="tab">Favorites</a></li>
           <li><a href="#projX" data-toggle="tab">ProjX</a></li>
@@ -37,7 +35,7 @@
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li>
+          <li>&nbsp;&nbsp;&nbsp;
             <span>Sort by:
               <span class="black"><select ng-model="orderProp">
                 <option value="gsx$name.$t">Alphabetical</option>
@@ -45,25 +43,44 @@
               </select></span>
             </span>
           </li>
-          <li><span class="glyphicon glyphicon-search"></span><span>  Search: <input ng-model="searchString"/>
+          <li>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span><span>  Search: <input ng-model="searchString"/>
           </span></li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">how to search<span class="caret"></span></a>
             <ul class="dropdown-menu">
+<<<<<<< HEAD
               <p style="color:black">...by <b>company name</b>:<br>"TechX"</p>
               <p style="color:black">...by <b>course number</b>:<br>"course 3"</p>
               <p style="color:black">...by <b>position</b>:<br>"internship"<br>"part-time"<br>"full-time"</p>
               <p style="color:black">...by <b>keyword</b>:<br>"awesome"</p>
+=======
+              <p>&nbsp;&nbsp;...by <b>company name</b>:<br>&nbsp;&nbsp;&nbsp;"acme"</p>
+              <p>&nbsp;&nbsp;...by <b>course number</b>:<br>&nbsp;&nbsp;&nbsp;"course 3"</p>
+              <p>&nbsp;&nbsp;...by <b>position</b>:<br>&nbsp;&nbsp;&nbsp;"internship"<br>&nbsp;&nbsp;&nbsp;"part-time"<br>&nbsp;&nbsp;&nbsp;"full-time"</p>
+              <p>&nbsp;&nbsp;...by <b>keyword</b>:<br>&nbsp;&nbsp;&nbsp;"awesome"</p>
+>>>>>>> 3a7ff7a13681994455108e5c870df3449f1e9e49
             </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" id="header">
+        <img src="images/xfair-header.svg" id="xfair">
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" ng-controller="Ctrl"> 
       <div class="tab-content">
           <!--HOME tab-->
           <div id="home" class="tab-pane fade in active">
+<<<<<<< HEAD
             <h3 style="font-size:40px"> <font color="#5A5050">HOME</font></h3>
+=======
+               <h3 style="font-size:40px"> <font color="#5A5050">HOME</font></h3>
+>>>>>>> 3a7ff7a13681994455108e5c870df3449f1e9e49
             <p style="font-size:15px">Welcome to xFair 2017! Browse company listings, support your friends' ProjX exhibitions, look up TechTalk times, and more.<br>If you have any questions during the fair, please visit Help Desk or reach out to anyone with an xFair Exec shirt.</p>
 
             <!-- Schedule -->   
@@ -76,7 +93,10 @@
             <p style="font-size:15px"><font color="#547A82">Banquet</font>
             <br>6PM-8:30PM Invite Only 
             <br>Invite only. Dine and network with recruiters and industry specialists from our selected sponsors.</p>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3a7ff7a13681994455108e5c870df3449f1e9e49
           </div>
           
           <!--companies tab-->
@@ -92,7 +112,7 @@
                     <p>&nbsp;&nbsp;&nbsp;Booth: {{ company.gsx$boothnumber.$t}} </p>
                   </div>
                   <p>{{ company.gsx$snippet.$t }}</p>
-                  <div class="special-padding">>>&nbsp;&nbsp;<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a></div>
+                  <div class="special-padding"> >>&nbsp;&nbsp;<a href="{{company.gsx$website.$t}}" target="_blank">Learn More</a></div>
                   
                   <div class="modal" role="dialog" id="{{ $index }}">
                     <div class="modal-dialog modal-md">
@@ -201,7 +221,8 @@
           </div>
 
            <div id="booths_map" class="tab-pane fade">
-           <p>insert the picture of the booths here</p>
+             <h3> BOOTH MAP </h3>
+           <p><img src="images/booths.svg" id= "boothmappic"></p>
            </div>
 
         <div class="col-md-2">&nbsp;</div>
