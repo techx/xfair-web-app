@@ -69,19 +69,48 @@
       <div class="tab-content">
           <!--HOME tab-->
           <div id="home" class="tab-pane fade in active">
-               <h3 style="font-size:40px"> <font color="#5A5050">HOME</font></h3>
+               <h3>HOME</h3>
             <p style="font-size:15px">Welcome to xFair 2017! Browse company listings, support your friends' ProjX exhibitions, look up TechTalk times, and more.<br>If you have any questions during the fair, please visit Help Desk or reach out to anyone with an xFair Exec shirt.</p>
 
             <!-- Schedule -->   
             <p style="font-size:25px"> <font color="#547A82"><b>Schedule of Events</b></font></p>
             <!-- how do you reduce line gap --> 
             <p style="font-size:15px">February 6, 2017</p>
-            <p style="font-size:15px"><font color="#547A82">xFair</font> 
-            <br>10AM-4PM Rockwell Cage, MIT Zesiger Center
+            <p style="font-size:15px"><b><font color="#547A82">xFair</font></b> 
+            <br>10AM-4PM   Rockwell Cage, MIT Zesiger Center
             <br>100+ companies from a wide variety of industries and 50+ student projects. The latest and greatest in industry tech, startups, and student talent.</p>
-            <p style="font-size:15px"><font color="#547A82">Banquet</font>
-            <br>6PM-8:30PM Invite Only 
-            <br>Invite only. Dine and network with recruiters and industry specialists from our selected sponsors.</p>
+            <p style="font-size:15px"><b><font color="#547A82">Banquet</font></b>
+            <br>6PM-8:30PM   Invite Only 
+            <br>Invite only. Dine and network with recruiters and industry specialists from our selected sponsors.
+            <br> Note: Sign up for the Banquet waitlist at the exit booth if you did not receive an invite. <br>
+            <br><b>Companies at Banquet</b><br>
+            Ab Initio<br>
+            AT&T<br>
+            Autoliv&T<br>
+            Capital One<br>
+            IDEXX Laboratories<br>
+            Intel<br>
+            Jetbrains<br>
+            Microsoft<br>
+            Oracle<br>
+            Sandia<br>
+            Toast<br>
+            Wiretap<br>
+            </p>
+
+            <!-- Other Announcements --> 
+            <p style="font-size:25px"> <font color="#547A82"><b>Things to Do at xFair</b></font></p>
+            <p style="font-size:15px"><b><font color="#547A82">Professional Headshots</font></b> 
+            <br>Get your LinkedIn headshots taken after you exit xFair in DuPoint Lobby!</p>
+            <p style="font-size:15px"><b><font color="#547A82">Raffles</font></b> 
+            <br> Win cool prizes! 
+            <br>Show us that you've used this website as registration and visit ProjX Booths to earn extra raffle tickets! Write your kerberos on the ticket and drop them into the raffle boxes at exit booth.</p>
+            <p style="font-size:15px"><b><font color="#547A82">ProjX Booths</font></b> 
+            <br>Check out this year's projects created by fellow MIT students! 
+            <br>Earn extra raffle tickets by visiting booths!</p>
+            <p style="font-size:15px"><b><font color="#547A82">Swag Bags</font></b> 
+            <br> Grab swag bags with TechX swag at the exit booth :)</p>
+
           </div>
           
           <!--companies tab-->
@@ -123,6 +152,7 @@
 
           <div id="favorites" class="tab-pane fade">
           <h3> FAVORITES </h3>
+            <p style="font-size:15px" align="center">Add companies to Favorites by clicking on the airplane under the company name.</p>
             <ul class="content-ul">
                 <li ng-repeat="company in favoriteList | searchForfav:searchString" class="dotted-border">
                    <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-fav'}} ">{{ company.gsx$name.$t }} </h4> 
@@ -154,6 +184,7 @@
            
           <div id="projX" class="tab-pane fade">
             <h3>PROJX BOOTHS</h3>
+            <p style="font-size:15px" align="center">Check out the awesome projects your peers have created and earn extra raffle tickets while doing so.</p>
             <ul class="content-ul">
               <li ng-repeat="project in projects | searchForprojx:searchString" class="dotted-border">
                 <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-projx'}} ">{{ project.gsx$title.$t }}</h4>
@@ -181,6 +212,7 @@
 
           <div id="techtalks" class="tab-pane fade">
             <h3>TECH TALKS</h3>
+            <p style="font-size:15px" align="center">Free lunch/dinner offered at each tech talk.</p>
             <ul class="content-ul">
               <li ng-repeat="techtalk in techtalks | searchFortechtalks:searchString" class="dotted-border">
                 <h4 class="modal-name" data-toggle="modal" data-target="{{ '#' + $index + '-talks'}} ">{{ techtalk.gsx$company.$t }}</h4>
