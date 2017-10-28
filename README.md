@@ -1,3 +1,3 @@
 # xfair-web-app
 
-Map of xFair.
+Map of xFair. Hosted at `map.xfair.io`
